@@ -1,0 +1,38 @@
+#define RedL 8
+#define GreenL 7
+#define YellowL 12
+
+int intC = 0;
+
+void setup() {
+ pinMode(RedL,OUTPUT);
+ pinMode(GreenL,OUTPUT);
+ pinMode(YellowL,OUTPUT);
+
+digitalWrite( RedL,0 );
+digitalWrite( GreenL,0 );
+digitalWrite( YellowL,0 );
+ 
+attachInterrupt( 0 ,interC, RISING );
+}
+
+void loop(){
+   intC++;
+   digitalWrite( RedL,1 );
+   digitalWrite( GreenL,1 );
+   delay(300);
+   digitalWrite( RedL,0 );
+   digitalWrite( GreenL,1 );
+   delay(300);
+
+   if ( intC == 10 ) {
+     intC = 0;
+     digitalWrite( YellowL,0 );
+ }
+
+}
+
+
+void interC() {
+  digitalWrite( YellowL, 1);
+}
