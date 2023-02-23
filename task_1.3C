@@ -1,0 +1,45 @@
+#define PIR1 2
+#define PIR2 3
+#define LED 9
+  
+//volatile bool motion_detected = false;
+  
+void setup()
+{
+  pinMode(PIR1, INPUT);
+  pinMode(PIR2, INPUT);
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+  attachInterrupt(0, LED_ON1, CHANGE);
+  attachInterrupt(1, LED_ON2, CHANGE);
+}
+
+void loop()
+{
+  //delay
+  Serial.println("Delay Begins");
+  delay(5000);
+  Serial.println("Delay Ends");
+}
+
+void LED_ON1()
+{
+  if(digitalRead(PIR1) == HIGH)
+  {
+    digitalWrite(LED, HIGH);
+    Serial.println("motion detected on sensor 1");
+  }
+  else
+    digitalWrite(LED, LOW);
+}
+     
+void LED_ON2()
+{
+  if(digitalRead(PIR2) == HIGH)
+  {
+    digitalWrite(LED, HIGH);
+     Serial.println("motion detected on sensor 2");
+  }
+  else
+    digitalWrite(LED, LOW);
+}
