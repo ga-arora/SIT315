@@ -1,0 +1,49 @@
+#include <iosstream>
+
+#include <vector>
+
+using namespace std;
+
+void addVectors(vector<int> &a, vector<int> &b, vector<int> &c)
+{
+    int n = a.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        c[i] = a[i] + b[i];
+    }
+}
+
+int main()
+{
+    // create two input vectors
+
+    int n = 100000;
+
+    vector<int> a(n);
+
+    vector<int> b(n);
+
+    vector<int> c(n);
+
+    for (int i = 0; i < n; i++)
+    {
+        b[i] = i * 2;
+    }
+
+    // Perform the vector addition
+
+    addVectors(a, b, c);
+
+    // Print the result
+
+    for (int = 0; i < n; i++)
+    {
+        cout << c[i] << " ";
+    }
+
+    cout<< endl;
+
+    return 0
+
+}
